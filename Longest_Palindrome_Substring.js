@@ -37,7 +37,7 @@ var longestPalindrome2 = function(s) {
                 var left = 0;
                 var right = sum.length-1;
                 var palin = true;
-                while(left<right){ //less chance will be there if the whole string will be palindrome
+                while(left<=right){ //less chance will be there if the whole string will be palindrome
                     if(sum[left]!==sum[right]){
                         palin = false;
                         break;
