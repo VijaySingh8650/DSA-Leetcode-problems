@@ -4,30 +4,25 @@
  */
 var setZeroes = function(matrix) {
 
-    let column = new Array(matrix?.[0]?.length).fill(1);
+    let N = matrix.length;
+    let M = matrix[0].length;
+    let col = new Array(M);
 
-    for(let i=0; i<matrix.length; i++){
-        if(matrix?.[i]?.includes(0)){
-            for(let j=0; j<matrix?.[0]?.length; j++){
-                if(matrix[i][j]===0){
-                     column[j] = 0;
-                }
-                matrix[i][j]  = 0;
+    for(let i=0; i<N; i++){
+        if(matrix[i].includes(0)){
+            for(let j=0; j<M; j++){
+                if(matrix[i][j]===0)col[j] = true;
+                matrix[i][j] = 0;
             }
         }
     }
 
-     for(let i=0; i<column.length; i++){
-
-      if(column[i]===0){
-        for(let j=0; j<matrix.length;j++){
-          matrix[j][i] = 0;
+    for(let i=0; i<M; i++){
+        if(col[i]){
+            for(let j=0; j<N; j++){
+                matrix[j][i] = 0;
+            }
         }
-      }
-
     }
-
-  return matrix;
-
-
+    
 };
